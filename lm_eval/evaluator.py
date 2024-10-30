@@ -497,8 +497,11 @@ def evaluate(
                 cloned_reqs.extend([req] * req.repeats)
 
         # run requests through model
+        print(f"lm: {lm}")
+        print(f"reqtype: {reqtype}")
+        print(f"cloned_req: {cloned_reqs}")
         resps = getattr(lm, reqtype)(cloned_reqs)
-        print(resps)
+        print(f"resps: {resps}")
 
         # put responses from model into a list of length K for each request.
         for x, req in zip(resps, cloned_reqs):
